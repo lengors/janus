@@ -25,6 +25,11 @@ repositories {
     mavenLocal()
 }
 
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+tasks.named('test') { Test it ->
+    it.useJUnitPlatform()
+}
 
 checkstyle {
     toolVersion = checkstyleToolVersion
