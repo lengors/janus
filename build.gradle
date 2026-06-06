@@ -1,7 +1,8 @@
 import java.util.stream.Collectors
 
 plugins {
-    id 'java'
+    id "java"
+    id "jacoco"
     id "checkstyle"
 }
 
@@ -31,6 +32,8 @@ repositories {
 
 tasks.named('test') { Test it ->
     it.useJUnitPlatform()
+test {
+    useJUnitPlatform()
 }
 
 tasks.register("setVersion") {
@@ -57,4 +60,12 @@ tasks.register("setVersion") {
 
 checkstyle {
     toolVersion = checkstyleToolVersion
+}
+
+jacocoTestReport {
+    dependsOn test
+
+    reports {
+        xml.required = true
+    }
 }
