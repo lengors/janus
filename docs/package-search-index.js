@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html","k":"18"},{"l":"io.github.lengors.janus.domain.users"},{"l":"io.github.lengors.janus.integrations.authentik"}];updateSearchResults();
