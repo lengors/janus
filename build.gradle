@@ -5,11 +5,13 @@ plugins {
     id "jacoco"
     id "checkstyle"
     id "org.sonarqube"
+    id "org.checkerframework"
 }
 
 group = "io.github.lengors"
 
 String javaVersion = properties["javaVersion"] ?: "25"
+String checkerframeworkVersion = properties["checkerframeworkVersion"] ?: "4.2.0"
 String checkstyleToolVersion = properties["checkstyleToolVersion"] ?: "10.23.1"
 
 java {
@@ -29,10 +31,17 @@ repositories {
     mavenLocal()
 }
 
+dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
 
-tasks.named('test') { Test it ->
-    it.useJUnitPlatform()
+checkerFramework {
+    version = checkerframeworkVersion
+    checkers = [
+            "org.checkerframework.checker.nullness.NullnessChecker",
+    ]
+}
+
 test {
     useJUnitPlatform()
 }

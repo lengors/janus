@@ -3,9 +3,11 @@ pluginManagement {
         gradlePluginPortal()
     }
 
+    String checkerframeworkPluginVersion = settings.ext.getProperty("checkerframeworkPluginVersion")
     String sonarqubeVersion = settings.ext.getProperty("sonarqubeVersion")
 
     plugins {
+        id "org.checkerframework" version checkerframeworkPluginVersion
         id "org.sonarqube" version sonarqubeVersion
     }
 }
