@@ -4,9 +4,10 @@ plugins {
     id "java"
     id "jacoco"
     id "checkstyle"
+    id "org.sonarqube"
 }
 
-group = 'io.github.lengors'
+group = "io.github.lengors"
 
 String javaVersion = properties["javaVersion"] ?: "25"
 String checkstyleToolVersion = properties["checkstyleToolVersion"] ?: "10.23.1"
@@ -67,5 +68,13 @@ jacocoTestReport {
 
     reports {
         xml.required = true
+    }
+}
+
+sonar {
+    properties {
+        property("sonar.projectKey", "lengors_${project.name}")
+        property("sonar.organization", "lengors-github")
+        property("sonar.host.url", "https://sonarcloud.io")
     }
 }
