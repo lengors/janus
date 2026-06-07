@@ -1,0 +1,123 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/v3/core/users/",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer authentik"
+          }
+        },
+        "queryParameters": {
+          "uuid": {
+            "equalTo": "12345678-1234-5678-1234-567812345677"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "pagination": {
+            "next": 0
+          },
+          "results": []
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/v3/core/users/",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer authentik"
+          }
+        },
+        "queryParameters": {
+          "uuid": {
+            "equalTo": "12345678-1234-5678-1234-567812345678"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "pagination": {
+            "next": 0
+          },
+          "results": [
+            {
+              "pk": 1,
+              "username": "tester-0",
+              "name": "Tester 0",
+              "is_active": true,
+              "groups_obj": [
+                {
+                  "num_pk": 2,
+                  "name": "Scoutdesk Developers",
+                  "pk": "b7e5c9a2-4f3d-4e2a-9c1a-2f6e7d8b9c0f"
+                }
+              ],
+              "email": "tester-0@example.com",
+              "avatar": "https://example.com/avatar.png",
+              "uid": "tester-0",
+              "uuid": "12345678-1234-5678-1234-567812345678"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/v3/core/users/",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer authentik"
+          }
+        },
+        "queryParameters": {
+          "uuid": {
+            "equalTo": "12345678-1234-5678-1234-567812345679"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "pagination": {
+            "next": 0
+          },
+          "results": [
+            {
+              "pk": 1,
+              "username": "tester-1",
+              "name": "Tester 1",
+              "is_active": true,
+              "groups_obj": [
+                {
+                  "num_pk": 2,
+                  "name": "Scoutdesk Developers",
+                  "pk": "b7e5c9a2-4f3d-4e2a-9c1a-2f6e7d8b9c0f"
+                }
+              ],
+              "avatar": "data:image/svg+xml;base64,abc",
+              "uid": "tester-1",
+              "uuid": "12345678-1234-5678-1234-567812345679"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
